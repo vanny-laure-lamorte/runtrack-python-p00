@@ -6,18 +6,19 @@ class Produit:
         self.produit_TVA = TVA
         
     def CalculerPrixTTC (self):         
-        prix_avec_TVA = self.produit_prixHT + self.produit_prixHT*self.produit_TVA
-        return prix_avec_TVA
+        prix_TTC = self.produit_prixHT + self.produit_prixHT*self.produit_TVA
+        return prix_TTC
 
     def afficher(self): 
         self.CalculerPrixTTC()
         return f"""
         Le nom du produit: {self.produit_nom} 
-        Le prix de départ est: {self.produit_prixHT}€ 
-        le prix de d'arrivée est: {self.CalculerPrixTTC()}€ 
+        Le prix HT: {self.produit_prixHT}€ 
+        La TVA: {self.produit_TVA}
+        Le prix TTC: {self.CalculerPrixTTC()}€ 
         """
  
-prix_final = Produit("Saucisson", 4, 0.28)
+prix_final = Produit("Saucisson", 4.5, 0.28)
 print (prix_final.afficher())
 
 prix_final = Produit("Jambon Cru", 5, 0.28)
