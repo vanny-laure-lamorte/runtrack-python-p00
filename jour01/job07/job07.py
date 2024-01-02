@@ -24,7 +24,6 @@ class Personnage:
         position_tuple = (self.attribut_x, self.attribut_y)        
         print (position_tuple)
 
-
 afficher_gauche= Personnage(-10, 20)
 afficher_gauche.gauche()
 

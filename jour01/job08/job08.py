@@ -14,11 +14,11 @@ class Cercle:
         print ("Le rayon du cercle est: ", self.donnee_rayon )
 
     def circonference(self):
-        resultat_circonference = 2 * self.donnee_rayon * 3.15
+        resultat_circonference = 2 * self.donnee_rayon * 3.14
         print ("La circonference du cercle est :  ", resultat_circonference)
 
     def aire(self):
-        resultat_aire = 3.15 * self.donnee_rayon * self.donnee_rayon
+        resultat_aire = 3.14 * self.donnee_rayon * self.donnee_rayon
         print ("L'aire du cercle est : ", resultat_aire)
 
     def diametre(self):
@@ -31,6 +31,6 @@ cercle1.circonference()
 cercle1.aire()
 cercle1.diametre()
 
-cercle1 = Cercle(7)
-cercle1.changerRayon(7)
+cercle2 = Cercle(7)
+cercle2.changerRayon(7)
 
