@@ -30,4 +30,5 @@ cercle1.afficherInfos()
 
 cercle2 = Cercle(7)
 cercle2.changerRayon(7)
+cercle2.afficherInfos()
 
