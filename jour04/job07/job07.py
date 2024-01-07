@@ -22,7 +22,7 @@ class Carte:
             self.carte_valeur== 11
             print(f"Carte As: {self.carte_valeur} points")
 
-set1 = Carte("Roi", "Rouge" )
+set1 = Carte("Roi", "Rouge",  )
 set1.valeur_chiffre(3)
 set1.valeur_as(11)
 set1.valeur_figure()
