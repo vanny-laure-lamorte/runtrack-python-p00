@@ -32,43 +32,56 @@ class Equipe:
         self.liste_joueur = []
 
     def ajouterJoueur(self, nouveau_joueur):
-        self.liste_joueur.append(nouveau_joueur)
+        if nouveau_joueur not in self.liste_joueur:
+            self.liste_joueur.append(nouveau_joueur)
+        else: 
+            print("Erreur: le joueur est déjà dans l'équipe")
 
     def afficherStatistiquesJoueurs(self):
         print(f"Voici les statistiques des joueurs de l'équipe {self.equipe_nom}:")
-        for joueur in self.liste_joueur:
-            joueur.afficherStatistiques()
+        for i in self.liste_joueur:
+            i.afficherStatistiques()
+        print(" ")
 
-    def mettreAJourStatistiquesJoueur(self, nom_joueur, buts=0, passes=0, cartons_jaunes=0, cartons_rouges=0 ): 
-        for joueur in self.liste_joueurs:
-            if joueur.nom == nom_joueur:
+    def mettreAJourStatistiquesJoueur(self, nom, buts=0, passes=0, cartons_jaunes=0, cartons_rouges=0 ): 
+        for joueur in self.liste_joueur:
+            if joueur.nom == nom:
                 joueur.nb_but += buts
                 joueur.passe_decisive += passes
                 joueur.carton_jaune += cartons_jaunes
                 joueur.carton_rouge += cartons_rouges
 
-info_joueur1 = Joueur("Kevin", 21, "Attaquant", 1, 10, 2, 3 )
-info_joueur1.afficherStatistiques()
+# Création des joueurs
+info_joueur1 = Joueur("Kevin", 21, "Gardien", 0, 0, 0, 0)
 info_joueur2 = Joueur("Lucas", 24, "Défense", 3, 10, 5, 1)
-info_joueur2.afficherStatistiques()
 info_joueur3 = Joueur("Lucy", 24, "Buteur", 1, 4, 2, 2 )
-info_joueur3.afficherStatistiques()
 info_joueur4 = Joueur("Ines", 6, "Milieu", 2, 5, 3, 4 )
-info_joueur4.afficherStatistiques()  
 
-# info_joueur1.marquerUnBut()
-# info_joueur1.effectuerUnePasseDecisive()
-# info_joueur1.recevoirUnCartonJaune()
-# info_joueur1.recevoirUnCartonRouge()
-
+#Création des équipes
 info_equipe1 = Equipe("Bayern Munich")
 info_equipe1.ajouterJoueur(info_joueur1)
 info_equipe1.ajouterJoueur(info_joueur2)
 
 info_equipe2 = Equipe("Real Madrid")
-info_equipe2.afficherStatistiquesJoueurs()
 info_equipe2.ajouterJoueur(info_joueur3)
-
 info_equipe2.ajouterJoueur(info_joueur4)
-info_equipe2.mettreAJourStatistiquesJoueur()
+
+# Afficher les statistiques des joueurs par equipes
+info_equipe1.afficherStatistiquesJoueurs()
+info_equipe2.afficherStatistiquesJoueurs()
+
+# Mis à jour des statistiques du joueur
+info_equipe1.mettreAJourStatistiquesJoueur("Lucy", 0, 1, 2, 1 )
+
+# Simulation match
+info_joueur1.marquerUnBut()
+info_joueur2.marquerUnBut()
+info_joueur3.recevoirUnCartonJaune()
+info_joueur4.effectuerUnePasseDecisive()
+info_joueur2.marquerUnBut()
+info_joueur3.recevoirUnCartonRouge()
+
+# Statistiques après le match
+info_equipe1.afficherStatistiquesJoueurs()
+info_equipe2.afficherStatistiquesJoueurs()
 
