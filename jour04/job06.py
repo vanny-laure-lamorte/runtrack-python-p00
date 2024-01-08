@@ -25,7 +25,7 @@ class Voiture(Vehicle):
 
     def demarrer(self): 
         print ("La voiture roule")
-
+        
 
 voiture1 = Voiture("Mercedes", "Classe A", 2020, 18500)
 voiture1.informationsVehicule()
